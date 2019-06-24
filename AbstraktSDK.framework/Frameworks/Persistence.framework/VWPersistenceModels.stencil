@@ -1,0 +1,185 @@
+import Foundation
+import CoreData
+
+{% for type in types.implementing.VMPersistenceModel %}
+{# Iterate over all structs that implement VMPersistenceModel #}
+
+public class VM{{type.name}}: NSObject, NSCoding {
+ {# Iterate over all variables that are not annotated as "ignore" #}
+ {% for variable in type.variables|!annotated:"ignore" %}
+  {% if variable.type.implements.VMPersistenceModel or variable.typeName.array.elementType.implements.VMPersistenceModel %}
+  {# The variable implements VMPersistenceModel or the variable is an array with elements that implement VMPersistenceModel #}
+   {% if variable.type.implements.VMPersistenceModel %}
+   {# The variable implements VMPersistenceModel #}
+    public var {{variable.name}}: VM{{variable.unwrappedTypeName}}?
+   {% endif %}
+   {% if variable.typeName.array.elementType.implements.VMPersistenceModel %}
+    public var {{variable.name}}: [VM{{variable.typeName.array.elementTypeName}}]!
+   {% endif %}
+  {% else %}
+    public var {{variable.name}}: {{variable.unwrappedTypeName}}?
+  {% endif %}
+ {% endfor %}
+
+     /**
+     * Instantiate the instance using the passed dictionary values to set the properties values
+     */
+     public init(fromDictionary dictionary: [String: Any]) {
+     {% for variable in type.variables|!annotated:"ignore" %}
+     {# Iterate over all variables that are not annotated as "ignore" #}
+     {% if variable.type.implements.VMPersistenceModel or variable.typeName.array.elementType.implements.VMPersistenceModel %}
+     {# The variable implements VMPersistenceModel or the variable is an array with elements that implement VMPersistenceModel #}
+      {% if variable.type.implements.VMPersistenceModel %}
+      {# The variable implements VMPersistenceModel #}
+       {% if variable|annotated:"coreDataKey" %}
+        if let {{variable.name}}Json = dictionary["{{variable.annotations.coreDataKey}}"] as? [String: Any] {
+       {% else %}
+        if let {{variable.name}}Json = dictionary["{{variable.name}}"] as? [String: Any] {
+       {% endif %}
+            self.{{variable.name}} = VM{{variable.unwrappedTypeName}}(fromDictionary: {{variable.name}}Json)
+        } else {
+            self.{{variable.name}} = nil
+        }
+      {% endif %}
+      {# The variable is an array with elements that implement VMPersistenceModel #}
+      {% if variable.typeName.array.elementType.implements.VMPersistenceModel %}
+        self.{{variable.name}} = [VM{{variable.typeName.array.elementTypeName}}]()
+       {% if variable|annotated:"coreDataKey" %}
+        if let {{variable.name}}Array = dictionary["{{variable.annotations.coreDataKey}}"] as? [[String: Any]] {
+       {% else %}
+        if let {{variable.name}}Array = dictionary["{{variable.name}}"] as? [[String: Any]] {
+       {% endif %}
+            for dict in {{variable.name}}Array {
+                let value = VM{{variable.typeName.array.elementTypeName}}(fromDictionary: dict)
+                self.{{variable.name}}.append(value)
+            }
+        }
+      {% endif %}
+
+     {# {% else %}
+      {% if variable.typeName|contains:"Date" %}
+      {% if variable|annotated:"coreDataKey" %}
+        if let tempDate = dictionary["{{variable.annotations.coreDataKey}}"] as? Int {
+            let date = Date(timeIntervalSince1970: TimeInterval(Double(tempDate)))
+            self.{{variable.name}} = date
+        }
+      {% else %}
+        if let tempDate = dictionary["{{variable.name}}"] as? Int {
+            let date = Date(timeIntervalSince1970: TimeInterval(Double(tempDate)))
+            self.{{variable.name}} = date
+        }
+      {% endif %} #}
+      {% else %}
+       {% if variable|annotated:"coreDataKey" %}
+        self.{{variable.name}} = dictionary["{{variable.annotations.coreDataKey}}"] as? {{variable.typeName}}
+       {% else %}
+        self.{{variable.name}} = dictionary["{{variable.name}}"] as? {{variable.typeName}}
+       {# {% endif %} #}
+      {% endif %}
+     {% endif %}
+     {% endfor %}
+    }
+
+    /**
+    * Returns all the available property values in the form of [String:Any] object where the key is the approperiate json key and the value is the value of the corresponding property
+    */
+    public func toDictionary() -> [String:Any] {
+        var dictionary = [String:Any]()
+
+    {% for variable in type.variables|!annotated:"ignore" %}
+    {# Iterate over all variables that are not annotated as "ignore" #}
+     {% if variable.type.implements.VMPersistenceModel or variable.typeName.array.elementType.implements.VMPersistenceModel %}
+     {# The variable implements VMPersistenceModel or the variable is an array with elements that implement VMPersistenceModel #}
+      {% if variable.type.implements.VMPersistenceModel %}
+      {# The variable implements VMPersistenceModel #}
+        if let dict = self.{{variable.name}}?.toDictionary() {
+         {% if variable|annotated:"jsonKey" %}
+            dictionary["{{variable.annotations.jsonKey}}"] = dict
+         {% else %}
+            dictionary["{{variable.name}}"] = dict
+         {% endif %}
+      {% endif %}
+      {% if variable.typeName.array.elementType.implements.VMPersistenceModel %}
+      {# The variable is an array with elements that implement VMPersistenceModel #}
+        if {{variable.name}} != nil{
+            var dictionaryElements = [[String:Any]]()
+            for element in {{variable.name}} {
+                dictionaryElements.append(element.toDictionary())
+            }
+            {% if variable|annotated:"jsonKey" %}
+            dictionary["{{variable.annotations.jsonKey}}"] = dictionaryElements
+            {% else %}
+            dictionary["{{variable.name}}"] = dictionaryElements
+            {% endif %}
+            {% endif %}
+        }
+     {% else %}
+      {% if variable|annotated:"jsonKey" %}
+        dictionary["{{variable.annotations.jsonKey}}"] = {{variable.name}}
+      {% else %}
+        dictionary["{{variable.name}}"] = {{variable.name}}
+      {% endif %}
+     {% endif %}
+    {% endfor %}
+
+        return dictionary
+    }
+
+    /**
+    * NSCoding required method.
+    * Encodes mode properties into the decoder
+    */
+    @objc public func encode(with aCoder: NSCoder) {
+      {% for variable in type.variables|!annotated:"ignore" %}
+      {# Iterate over all variables that are not annotated as "ignore" #}
+        if self.{{variable.name}} != nil {
+        	aCoder.encode({{variable.name}}, forKey:"{{variable.name}}")
+        }
+      {% endfor %}
+    }
+
+    /**
+    * NSCoding required initializer.
+    * Fills the data from the passed decoder
+    */
+    required public init(coder aDecoder: NSCoder) {
+     {% for variable in type.variables|!annotated:"ignore" %}
+     {# Iterate over all variables that are not annotated as "ignore" #}
+      {% if variable.type.implements.VMPersistenceModel or variable.typeName.array.elementType.implements.VMPersistenceModel %}
+      {# The variable implements VMPersistenceModel or the variable is an array with elements that implement VMPersistenceModel #}
+       {% if variable.type.implements.VMPersistenceModel %}
+       {# The variable implements VMPersistenceModel #}
+        self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? VM{{variable.typeName}}
+       {% endif %}
+       {% if variable.typeName.array.elementType.implements.VMPersistenceModel %}
+       {# The variable is an array with elements that implement VMPersistenceModel #}
+        self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? [VM{{variable.typeName.array.elementTypeName}}] ?? []
+       {% endif %}
+      {% else %}
+        self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? {{variable.typeName}}
+      {% endif %}
+     {% endfor %}
+    }
+    {% if type|annotated:"coreDataType" %}
+
+    /**
+    * Stores the data in the model to core data instance
+    */
+    public func writeToDisk() -> Bool {
+        //TODO: - Shift to background thread for performance optimization?
+        if let entity = NSEntityDescription.entity(forEntityName: "{{type.annotations.coreDataType}}", in: OfflineStorage.shared.getContext()) {
+            let data = NSManagedObject(entity: entity, insertInto: OfflineStorage.shared.getContext())
+
+          {% for variable in type.variables|annotated:"coreDataKey" %}
+          {# Iterate over all variables that have "coreDataKey" annotation #}
+            if let _{{variable.name}} = self.{{variable.name}} {
+                data.setValue(_{{variable.name}}, forKey:"{{variable.annotations.coreDataKey}}")
+            }
+          {% endfor %}
+        }
+
+        return OfflineStorage.shared.saveContext()
+    }
+    {% endif %}
+}
+{% endfor %}

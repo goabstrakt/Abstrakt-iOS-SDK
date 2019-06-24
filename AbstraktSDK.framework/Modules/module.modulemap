@@ -1,0 +1,11 @@
+framework module AbstraktSDK {
+  umbrella header "AbstraktSDK.h"
+
+  export *
+  module * { export * }
+}
+
+module AbstraktSDK.Swift {
+    header "AbstraktSDK-Swift.h"
+    requires objc
+}
