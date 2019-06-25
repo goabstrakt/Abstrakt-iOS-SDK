@@ -6,7 +6,7 @@
 	<dict>
 		<key>Frameworks/Authentication.framework/Authentication</key>
 		<data>
-		ohqMjpnyUl7Sj1OyDWVX+6B7MI0=
+		ip0CboAVSBp+CjZxZEOTiWGM5is=
 		</data>
 		<key>Frameworks/Authentication.framework/Info.plist</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/AuthenticationAuth0.framework/AuthenticationAuth0</key>
 		<data>
-		2BX55JEVbMTdT/xxLiQvQDWm5V8=
+		3r7BUF1DP0Ha5Th/4rw5B41vSOY=
 		</data>
 		<key>Frameworks/AuthenticationAuth0.framework/Info.plist</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Frameworks/AuthenticationInterface.framework/AuthenticationInterface</key>
 		<data>
-		2fjRxaQ01dtLtPAo8k4+swTw8ok=
+		B3IMTgc5eaO73sTV0OGKNzKNKDg=
 		</data>
 		<key>Frameworks/AuthenticationInterface.framework/Info.plist</key>
 		<data>
@@ -346,7 +346,7 @@
 		</data>
 		<key>Frameworks/Logging.framework/Logging</key>
 		<data>
-		tbmRhEJNBATflVXMAPIJ6qHT53s=
+		lHAK2taqX6t5vJFTI/HfPv0VfuI=
 		</data>
 		<key>Frameworks/Logging.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -358,7 +358,7 @@
 		</data>
 		<key>Frameworks/MQTTClient.framework/MQTTClient</key>
 		<data>
-		QTRyPKCrJfg6EgOeqqNHchNpEp8=
+		PAewHC5WRhZs5FY6gxFPcZ+/qWs=
 		</data>
 		<key>Frameworks/MQTTClient.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -370,7 +370,7 @@
 		</data>
 		<key>Frameworks/MQTTHandler.framework/MQTTHandler</key>
 		<data>
-		undSiPp9zWFwGRIuiKfkFkhGvtA=
+		tZBzNLRvaFFCWIMFjGA5TfTClsA=
 		</data>
 		<key>Frameworks/MQTTHandler.framework/VWMQTTModels.stencil</key>
 		<data>
@@ -386,7 +386,7 @@
 		</data>
 		<key>Frameworks/Persistence.framework/Persistence</key>
 		<data>
-		gUhx/NvBB+qEpXvaY9/HV3F9k0c=
+		ZVJZiY4PYCC2T8Osb87thQ0ItjI=
 		</data>
 		<key>Frameworks/Persistence.framework/VWPersistenceModels.stencil</key>
 		<data>
@@ -414,7 +414,7 @@
 		</data>
 		<key>Frameworks/TrezorCrypto.framework/TrezorCrypto</key>
 		<data>
-		atkOqqqpV6wsa/mSFdR9X8yAQjM=
+		N9MUVCHzVAuHy2GV5RX1xz6wD88=
 		</data>
 		<key>Frameworks/TrezorCrypto.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -434,7 +434,7 @@
 		</data>
 		<key>Frameworks/Wallet.framework/Wallet</key>
 		<data>
-		dX/RWfCMbIH8RD1f5Go2bUkvfz0=
+		Pv3yQTYp/FSwxigXlgnH2o5PlR4=
 		</data>
 		<key>Frameworks/Wallet.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -446,7 +446,7 @@
 		</data>
 		<key>Frameworks/WalletAion.framework/WalletAion</key>
 		<data>
-		gfTbWEtPBYUP1MtumQSk7UNYH6A=
+		x0fiQwD0Y7ODUHWX8l1J0ixGm5Q=
 		</data>
 		<key>Frameworks/WalletAion.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -458,7 +458,7 @@
 		</data>
 		<key>Frameworks/WalletEthereum.framework/WalletEthereum</key>
 		<data>
-		Gre4mOEbVRudq1cLYpEDrS2Fd28=
+		VRvE777WgRM8p/Eaep4NIdSUXo8=
 		</data>
 		<key>Frameworks/WalletEthereum.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -470,7 +470,7 @@
 		</data>
 		<key>Frameworks/WalletInterface.framework/WalletInterface</key>
 		<data>
-		+HZEWT6SM+lpSfJcGQLLoZkF98I=
+		SHsDcTS75zBTz+Bm0MYuohEnJws=
 		</data>
 		<key>Frameworks/WalletInterface.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -831,11 +831,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ohqMjpnyUl7Sj1OyDWVX+6B7MI0=
+			ip0CboAVSBp+CjZxZEOTiWGM5is=
 			</data>
 			<key>hash2</key>
 			<data>
-			bOzI9LfzYE5Pni/Z0GfA/G0n90JfUlD6iinYXoLOGw8=
+			MzKHJ77dN8bvG/HljM3e6aYHIxqGFT5iajMUX1vDOyM=
 			</data>
 		</dict>
 		<key>Frameworks/Authentication.framework/Info.plist</key>
@@ -864,11 +864,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2BX55JEVbMTdT/xxLiQvQDWm5V8=
+			3r7BUF1DP0Ha5Th/4rw5B41vSOY=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZtWaL78LJYihk3hahYSI3W81oBiKVExlAo3y3DIIHhQ=
+			aIgjfhntbhGXCJYb0BahVD0aZeQsyXsqNGHMQxMYEvY=
 			</data>
 		</dict>
 		<key>Frameworks/AuthenticationAuth0.framework/Info.plist</key>
@@ -897,11 +897,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			2fjRxaQ01dtLtPAo8k4+swTw8ok=
+			B3IMTgc5eaO73sTV0OGKNzKNKDg=
 			</data>
 			<key>hash2</key>
 			<data>
-			45Owv58uu42QLOOa6L90DkCBOqK02Dh+9JOT5w4jkQE=
+			GIonDFW3hrN2IqH1TEMMIHEacle8QhD7T7EWCT1lLtg=
 			</data>
 		</dict>
 		<key>Frameworks/AuthenticationInterface.framework/Info.plist</key>
@@ -1578,11 +1578,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tbmRhEJNBATflVXMAPIJ6qHT53s=
+			lHAK2taqX6t5vJFTI/HfPv0VfuI=
 			</data>
 			<key>hash2</key>
 			<data>
-			5mg8+vKqe1MoWQniRa3MHLrkCAas9fwcx/HkhEqzR2g=
+			a1hUr6OqM2xAC5es3qPrIV17mnfo7kbJKmF9729SWOw=
 			</data>
 		</dict>
 		<key>Frameworks/Logging.framework/_CodeSignature/CodeResources</key>
@@ -1611,11 +1611,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			QTRyPKCrJfg6EgOeqqNHchNpEp8=
+			PAewHC5WRhZs5FY6gxFPcZ+/qWs=
 			</data>
 			<key>hash2</key>
 			<data>
-			cvh2MgEy3Jj7ZnWB2rGUwRCPYoKKpOzZGLXrtixEEps=
+			AMTb/+6xpyDgr3r66FabKWSwP+DsvduDVBzRth9n6X4=
 			</data>
 		</dict>
 		<key>Frameworks/MQTTClient.framework/_CodeSignature/CodeResources</key>
@@ -1644,11 +1644,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			undSiPp9zWFwGRIuiKfkFkhGvtA=
+			tZBzNLRvaFFCWIMFjGA5TfTClsA=
 			</data>
 			<key>hash2</key>
 			<data>
-			ZeWSaK1ZD4dg+lZWySpwoqfjzFzamw4wMyWaN5Ucwig=
+			V4VWfeYIY4Ymmt2dLxMKDj51idESWzVxF9u++jPrHIU=
 			</data>
 		</dict>
 		<key>Frameworks/MQTTHandler.framework/VWMQTTModels.stencil</key>
@@ -1688,11 +1688,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gUhx/NvBB+qEpXvaY9/HV3F9k0c=
+			ZVJZiY4PYCC2T8Osb87thQ0ItjI=
 			</data>
 			<key>hash2</key>
 			<data>
-			muUnOUSxX/HUcQzat30jj1q8UEO+YM2NNzVc82J8N4w=
+			ntXdMF2nblGQtwscybES0oe5adRR24qAG4R9f0oySq0=
 			</data>
 		</dict>
 		<key>Frameworks/Persistence.framework/VWPersistenceModels.stencil</key>
@@ -1765,11 +1765,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			atkOqqqpV6wsa/mSFdR9X8yAQjM=
+			N9MUVCHzVAuHy2GV5RX1xz6wD88=
 			</data>
 			<key>hash2</key>
 			<data>
-			AjiLHlgeXRXKKVK6BttGQ2lVbDrZ8oUaVixhBg+dVPY=
+			22/HxaM2lANeXoEM76Bv8TbQMEUa04B1W0gUuqEQ80c=
 			</data>
 		</dict>
 		<key>Frameworks/TrezorCrypto.framework/_CodeSignature/CodeResources</key>
@@ -1820,11 +1820,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			dX/RWfCMbIH8RD1f5Go2bUkvfz0=
+			Pv3yQTYp/FSwxigXlgnH2o5PlR4=
 			</data>
 			<key>hash2</key>
 			<data>
-			I6cePa5UvIkLp4vL+YqTSdEDtda+WwnZZoWsQECaBKA=
+			+tooX9E+X4AIzdzQCUzdBMJlg0aIJVhxYxKACQXgypE=
 			</data>
 		</dict>
 		<key>Frameworks/Wallet.framework/_CodeSignature/CodeResources</key>
@@ -1853,11 +1853,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gfTbWEtPBYUP1MtumQSk7UNYH6A=
+			x0fiQwD0Y7ODUHWX8l1J0ixGm5Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			zVC6+cWavE1TdswTGumN6I/7AZ1LK5gnoFJFbzKMQeE=
+			COG9b4Nz8tLiFYz8t5jWq7yufh9u310SJqJZOL4scKA=
 			</data>
 		</dict>
 		<key>Frameworks/WalletAion.framework/_CodeSignature/CodeResources</key>
@@ -1886,11 +1886,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Gre4mOEbVRudq1cLYpEDrS2Fd28=
+			VRvE777WgRM8p/Eaep4NIdSUXo8=
 			</data>
 			<key>hash2</key>
 			<data>
-			3hbrYSd2wcMz3atpy562AhhyTasJTjicrk4XqEi11i8=
+			7TT71Zd3N3ToHMbiYjiOtZaFFxU9vqhBQaK6a9EQhuY=
 			</data>
 		</dict>
 		<key>Frameworks/WalletEthereum.framework/_CodeSignature/CodeResources</key>
@@ -1919,11 +1919,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			+HZEWT6SM+lpSfJcGQLLoZkF98I=
+			SHsDcTS75zBTz+Bm0MYuohEnJws=
 			</data>
 			<key>hash2</key>
 			<data>
-			63xQYzqUUzmRb0pqM3D4SnA66H7mj4Hu1x66ZX1FRUg=
+			hmQCL53BD2/TuC6qjQ2ZHCckk7N6N27n34pXpcwYAiM=
 			</data>
 		</dict>
 		<key>Frameworks/WalletInterface.framework/_CodeSignature/CodeResources</key>
