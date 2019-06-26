@@ -156,7 +156,7 @@ Login/Create new user account by authenticating with Auth0. This function create
   <tr><td>email</font></td><td>username & email of user</td></tr>
   <tr><td>password</td><td>user password must have at least 8 characters, 1 lower case, 1 upper case, 1 special character</td></tr>
   <tr><th><b>Return</b></th><th><b>Description</b></th></tr>
-  <tr><td>string</td><td>returns *success* or *nil* if authentication failed  TODO: is this right Ameed?</td></tr>
+  <tr><td>string</td><td>returns *success* or *nil* if authentication failed</td></tr>
 </table>
 
 ```swift
@@ -210,7 +210,7 @@ A mnemonic is a human readable list of words that generates a master seed, that 
 
 #### Generate a Mnemonic seed  
 Creates a random mnemonic string. Returned string can be displayed to the user for backup. 
-*After calling `createMnemonic`, call `createAccount` to create the first account using this mnemonic.*  TODO: is this correct Ameed?
+*After calling `createMnemonic`, call `createAccount` to create the first account using this mnemonic.*
 ```swift
 Abstrakt.shared.createMnemonic() -> String
 ```
@@ -282,7 +282,7 @@ Abstrakt.shared.getTransactions(blockchainNetwork: [Strings], completion: @escap
 ```swift
 Abstrakt.shared.getTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
 ```
-#### Send Transaction - TODO is this correct Ameed?
+#### Send Transaction
 Send transaction by specifying the from address, to address, the blockchain network, and value in ether.   
 
 <table>
