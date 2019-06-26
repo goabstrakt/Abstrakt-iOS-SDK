@@ -6,7 +6,7 @@
 	<dict>
 		<key>Frameworks/Authentication.framework/Authentication</key>
 		<data>
-		ip0CboAVSBp+CjZxZEOTiWGM5is=
+		AcGzoZXq52mFWNjYvMQ6EfpWW7A=
 		</data>
 		<key>Frameworks/Authentication.framework/Info.plist</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>Frameworks/AuthenticationAuth0.framework/AuthenticationAuth0</key>
 		<data>
-		3r7BUF1DP0Ha5Th/4rw5B41vSOY=
+		BICjYV9lrt7JT3wrAKf6xQZy3F0=
 		</data>
 		<key>Frameworks/AuthenticationAuth0.framework/Info.plist</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>Frameworks/AuthenticationInterface.framework/AuthenticationInterface</key>
 		<data>
-		B3IMTgc5eaO73sTV0OGKNzKNKDg=
+		yAqhVVnceozWoXrLrOo6aQhBc8c=
 		</data>
 		<key>Frameworks/AuthenticationInterface.framework/Info.plist</key>
 		<data>
@@ -346,7 +346,7 @@
 		</data>
 		<key>Frameworks/Logging.framework/Logging</key>
 		<data>
-		lHAK2taqX6t5vJFTI/HfPv0VfuI=
+		xc5XuE9rx4yR0avILemJwyLrTIA=
 		</data>
 		<key>Frameworks/Logging.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -358,7 +358,7 @@
 		</data>
 		<key>Frameworks/MQTTClient.framework/MQTTClient</key>
 		<data>
-		PAewHC5WRhZs5FY6gxFPcZ+/qWs=
+		n5RHXVt3dpXE6d8Pk0hE1P++ly4=
 		</data>
 		<key>Frameworks/MQTTClient.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -370,7 +370,7 @@
 		</data>
 		<key>Frameworks/MQTTHandler.framework/MQTTHandler</key>
 		<data>
-		tZBzNLRvaFFCWIMFjGA5TfTClsA=
+		W9X+RgZ8WsjU+L0wisE8uKti7X0=
 		</data>
 		<key>Frameworks/MQTTHandler.framework/VWMQTTModels.stencil</key>
 		<data>
@@ -386,7 +386,7 @@
 		</data>
 		<key>Frameworks/Persistence.framework/Persistence</key>
 		<data>
-		ZVJZiY4PYCC2T8Osb87thQ0ItjI=
+		FMdq7Wud0BTkoNZeF1IhupcVPjc=
 		</data>
 		<key>Frameworks/Persistence.framework/VWPersistenceModels.stencil</key>
 		<data>
@@ -414,7 +414,7 @@
 		</data>
 		<key>Frameworks/TrezorCrypto.framework/TrezorCrypto</key>
 		<data>
-		N9MUVCHzVAuHy2GV5RX1xz6wD88=
+		cP3urCEpo1fjzk5+eSxOka+O2oM=
 		</data>
 		<key>Frameworks/TrezorCrypto.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -434,7 +434,7 @@
 		</data>
 		<key>Frameworks/Wallet.framework/Wallet</key>
 		<data>
-		Pv3yQTYp/FSwxigXlgnH2o5PlR4=
+		xmNjYtrPEVC5GLRvzNoXiXntNjQ=
 		</data>
 		<key>Frameworks/Wallet.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -446,7 +446,7 @@
 		</data>
 		<key>Frameworks/WalletAion.framework/WalletAion</key>
 		<data>
-		x0fiQwD0Y7ODUHWX8l1J0ixGm5Q=
+		uCICIg7tAJpie6fUKqQ1hYj+FLI=
 		</data>
 		<key>Frameworks/WalletAion.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -458,7 +458,7 @@
 		</data>
 		<key>Frameworks/WalletEthereum.framework/WalletEthereum</key>
 		<data>
-		VRvE777WgRM8p/Eaep4NIdSUXo8=
+		orKBv3Tywi8D2w4A70eWkX2x2No=
 		</data>
 		<key>Frameworks/WalletEthereum.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -470,7 +470,7 @@
 		</data>
 		<key>Frameworks/WalletInterface.framework/WalletInterface</key>
 		<data>
-		SHsDcTS75zBTz+Bm0MYuohEnJws=
+		wWUlju6Fi2CRbsbneEnrAmSBXyA=
 		</data>
 		<key>Frameworks/WalletInterface.framework/_CodeSignature/CodeResources</key>
 		<data>
@@ -790,35 +790,35 @@
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		Tv4KTmHj6GuI+ceYOvaw1porCfk=
+		PqX04n6Wrgn7rzzxVzH7cvUjkFY=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		eygK5AaTus3yVWVVxawUoqWoBDA=
+		NIQA/0XFptdd8dIsuRMIbaLV8/Y=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		TW1pCoUEbPX+ZqlNEHv5Y+cAmJ4=
+		4EXgk9dj5JmohkM2R1v6/o54/1M=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		JUhg2zDSswq2iMiM8oEpmzeHTWI=
+		mOdhS81F5/y1kKAqv3cHf42WFYQ=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7.swiftdoc</key>
 		<data>
-		Tv4KTmHj6GuI+ceYOvaw1porCfk=
+		PqX04n6Wrgn7rzzxVzH7cvUjkFY=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7.swiftmodule</key>
 		<data>
-		eygK5AaTus3yVWVVxawUoqWoBDA=
+		NIQA/0XFptdd8dIsuRMIbaLV8/Y=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7s.swiftdoc</key>
 		<data>
-		eHxw5LKKlf7zV9aAPEM8Yg8RKPw=
+		CJgXivZpNWKWy7PzTElBekJEI0A=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7s.swiftmodule</key>
 		<data>
-		qYgzKNhJFLcITaUrLxWMNHH+5a8=
+		rqo/rhM58F9/KWryIEnoh0blscY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -831,11 +831,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ip0CboAVSBp+CjZxZEOTiWGM5is=
+			AcGzoZXq52mFWNjYvMQ6EfpWW7A=
 			</data>
 			<key>hash2</key>
 			<data>
-			MzKHJ77dN8bvG/HljM3e6aYHIxqGFT5iajMUX1vDOyM=
+			bxU3i9DKGyjLYCxgZxKW03e+bT84sO4B+xHBpqIC/Sg=
 			</data>
 		</dict>
 		<key>Frameworks/Authentication.framework/Info.plist</key>
@@ -864,11 +864,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			3r7BUF1DP0Ha5Th/4rw5B41vSOY=
+			BICjYV9lrt7JT3wrAKf6xQZy3F0=
 			</data>
 			<key>hash2</key>
 			<data>
-			aIgjfhntbhGXCJYb0BahVD0aZeQsyXsqNGHMQxMYEvY=
+			A3G7hFw87YwRfQ2RT9GJ/B3oRQHdNPuwhqlD7s6QHn0=
 			</data>
 		</dict>
 		<key>Frameworks/AuthenticationAuth0.framework/Info.plist</key>
@@ -897,11 +897,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			B3IMTgc5eaO73sTV0OGKNzKNKDg=
+			yAqhVVnceozWoXrLrOo6aQhBc8c=
 			</data>
 			<key>hash2</key>
 			<data>
-			GIonDFW3hrN2IqH1TEMMIHEacle8QhD7T7EWCT1lLtg=
+			EVD1RjD4o8k6rL1r+HiLixCxCzLgnpCLUWStd9l+Q78=
 			</data>
 		</dict>
 		<key>Frameworks/AuthenticationInterface.framework/Info.plist</key>
@@ -1578,11 +1578,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lHAK2taqX6t5vJFTI/HfPv0VfuI=
+			xc5XuE9rx4yR0avILemJwyLrTIA=
 			</data>
 			<key>hash2</key>
 			<data>
-			a1hUr6OqM2xAC5es3qPrIV17mnfo7kbJKmF9729SWOw=
+			pHRcq+nu8aA1rZEQHAaImNTT/P8FPfvqzZ4Q7Fa8rYI=
 			</data>
 		</dict>
 		<key>Frameworks/Logging.framework/_CodeSignature/CodeResources</key>
@@ -1611,11 +1611,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			PAewHC5WRhZs5FY6gxFPcZ+/qWs=
+			n5RHXVt3dpXE6d8Pk0hE1P++ly4=
 			</data>
 			<key>hash2</key>
 			<data>
-			AMTb/+6xpyDgr3r66FabKWSwP+DsvduDVBzRth9n6X4=
+			6GBwJL+aGGYNY7mder64WNuGZ8D36QJ8v1gAumxT9bM=
 			</data>
 		</dict>
 		<key>Frameworks/MQTTClient.framework/_CodeSignature/CodeResources</key>
@@ -1644,11 +1644,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			tZBzNLRvaFFCWIMFjGA5TfTClsA=
+			W9X+RgZ8WsjU+L0wisE8uKti7X0=
 			</data>
 			<key>hash2</key>
 			<data>
-			V4VWfeYIY4Ymmt2dLxMKDj51idESWzVxF9u++jPrHIU=
+			CrarNn6fIVrjJ9KGNZUbJXnMxVzXHlSMvzzZ0dAZDDQ=
 			</data>
 		</dict>
 		<key>Frameworks/MQTTHandler.framework/VWMQTTModels.stencil</key>
@@ -1688,11 +1688,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			ZVJZiY4PYCC2T8Osb87thQ0ItjI=
+			FMdq7Wud0BTkoNZeF1IhupcVPjc=
 			</data>
 			<key>hash2</key>
 			<data>
-			ntXdMF2nblGQtwscybES0oe5adRR24qAG4R9f0oySq0=
+			BYev2nEQlAtcAfqM6Qb1poiRFAXiZxzVcrX4gR35hi8=
 			</data>
 		</dict>
 		<key>Frameworks/Persistence.framework/VWPersistenceModels.stencil</key>
@@ -1765,11 +1765,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			N9MUVCHzVAuHy2GV5RX1xz6wD88=
+			cP3urCEpo1fjzk5+eSxOka+O2oM=
 			</data>
 			<key>hash2</key>
 			<data>
-			22/HxaM2lANeXoEM76Bv8TbQMEUa04B1W0gUuqEQ80c=
+			tVG3Wh5+b7cqWo6mWobUFBwnuNUJPTcWxdElCEox3Ys=
 			</data>
 		</dict>
 		<key>Frameworks/TrezorCrypto.framework/_CodeSignature/CodeResources</key>
@@ -1820,11 +1820,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Pv3yQTYp/FSwxigXlgnH2o5PlR4=
+			xmNjYtrPEVC5GLRvzNoXiXntNjQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			+tooX9E+X4AIzdzQCUzdBMJlg0aIJVhxYxKACQXgypE=
+			OdJgBaR675TK2UvSZL6i3kVp7PI85FozS89mAqq08nk=
 			</data>
 		</dict>
 		<key>Frameworks/Wallet.framework/_CodeSignature/CodeResources</key>
@@ -1853,11 +1853,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			x0fiQwD0Y7ODUHWX8l1J0ixGm5Q=
+			uCICIg7tAJpie6fUKqQ1hYj+FLI=
 			</data>
 			<key>hash2</key>
 			<data>
-			COG9b4Nz8tLiFYz8t5jWq7yufh9u310SJqJZOL4scKA=
+			wWBFkQVE8etJVbnwqBPXmxgqJap+nCjfJ/ThLQXUoVU=
 			</data>
 		</dict>
 		<key>Frameworks/WalletAion.framework/_CodeSignature/CodeResources</key>
@@ -1886,11 +1886,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			VRvE777WgRM8p/Eaep4NIdSUXo8=
+			orKBv3Tywi8D2w4A70eWkX2x2No=
 			</data>
 			<key>hash2</key>
 			<data>
-			7TT71Zd3N3ToHMbiYjiOtZaFFxU9vqhBQaK6a9EQhuY=
+			MjhHoFmb7XlifnetHdHTZ0oRojMOowkfYO4+r3qRzN4=
 			</data>
 		</dict>
 		<key>Frameworks/WalletEthereum.framework/_CodeSignature/CodeResources</key>
@@ -1919,11 +1919,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			SHsDcTS75zBTz+Bm0MYuohEnJws=
+			wWUlju6Fi2CRbsbneEnrAmSBXyA=
 			</data>
 			<key>hash2</key>
 			<data>
-			hmQCL53BD2/TuC6qjQ2ZHCckk7N6N27n34pXpcwYAiM=
+			rpRqHn4BEbw6lDhvGzReKQIri6iUWMPnXz6W5EAivhk=
 			</data>
 		</dict>
 		<key>Frameworks/WalletInterface.framework/_CodeSignature/CodeResources</key>
@@ -2600,88 +2600,88 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Tv4KTmHj6GuI+ceYOvaw1porCfk=
+			PqX04n6Wrgn7rzzxVzH7cvUjkFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			92TIWRq1MN+nMGr2XvnifAl2pCdogEe4OFzl5hIcbpA=
+			JB8CK7A+b3V4sne2xBeAXNjhtPZAo6pZ8MNCN/8mfOY=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eygK5AaTus3yVWVVxawUoqWoBDA=
+			NIQA/0XFptdd8dIsuRMIbaLV8/Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			KdSGRjN8PGVTVSfgBfMicZ26yxPlvB+meUjLSMqU6lI=
+			zXYjK2mOsgoUauWPADaHmhGa1oaxI8bHnCg8EaT+hLg=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			TW1pCoUEbPX+ZqlNEHv5Y+cAmJ4=
+			4EXgk9dj5JmohkM2R1v6/o54/1M=
 			</data>
 			<key>hash2</key>
 			<data>
-			xt/tv3UOuml5RcXIhL9wV9yn+CdT1m6dHCRvMZdLygc=
+			gk9v+MBWjsNohwEIQtSaWzh9GucvdQ0qRffLkr7vqwI=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			JUhg2zDSswq2iMiM8oEpmzeHTWI=
+			mOdhS81F5/y1kKAqv3cHf42WFYQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			Qsir1xdKNcxQrhDSBBwCDjXxKxKlmCCAROtj9C+mKfo=
+			7ISLlqSTDtF2xO4J40zIUCyF1hSnBKt85A79dkwh/Yk=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			Tv4KTmHj6GuI+ceYOvaw1porCfk=
+			PqX04n6Wrgn7rzzxVzH7cvUjkFY=
 			</data>
 			<key>hash2</key>
 			<data>
-			92TIWRq1MN+nMGr2XvnifAl2pCdogEe4OFzl5hIcbpA=
+			JB8CK7A+b3V4sne2xBeAXNjhtPZAo6pZ8MNCN/8mfOY=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eygK5AaTus3yVWVVxawUoqWoBDA=
+			NIQA/0XFptdd8dIsuRMIbaLV8/Y=
 			</data>
 			<key>hash2</key>
 			<data>
-			KdSGRjN8PGVTVSfgBfMicZ26yxPlvB+meUjLSMqU6lI=
+			zXYjK2mOsgoUauWPADaHmhGa1oaxI8bHnCg8EaT+hLg=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7s.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			eHxw5LKKlf7zV9aAPEM8Yg8RKPw=
+			CJgXivZpNWKWy7PzTElBekJEI0A=
 			</data>
 			<key>hash2</key>
 			<data>
-			kaAl8dxSLu+/uFd753DoZ+F25lMhQY0PGDv1OUILYyo=
+			aiGleN5O420+ERuqyuYZ1o8MgmdJUC/z9hBTV7tbtgw=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/armv7s.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			qYgzKNhJFLcITaUrLxWMNHH+5a8=
+			rqo/rhM58F9/KWryIEnoh0blscY=
 			</data>
 			<key>hash2</key>
 			<data>
-			L5ijYuW98hp5sk9zczV5f0GF8o94BAKrMfFNSxJnMyU=
+			mj20QWlSAkAmx8Xslf+v1WwVifEl6NoHkjWtma12RRA=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
