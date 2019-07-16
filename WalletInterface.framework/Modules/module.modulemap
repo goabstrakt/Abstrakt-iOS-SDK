@@ -1,0 +1,11 @@
+framework module WalletInterface {
+  umbrella header "WalletInterface.h"
+
+  export *
+  module * { export * }
+}
+
+module WalletInterface.Swift {
+    header "WalletInterface-Swift.h"
+    requires objc
+}

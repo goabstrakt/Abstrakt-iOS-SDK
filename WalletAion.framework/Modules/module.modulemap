@@ -1,0 +1,11 @@
+framework module WalletAion {
+  umbrella header "WalletAion.h"
+
+  export *
+  module * { export * }
+}
+
+module WalletAion.Swift {
+    header "WalletAion-Swift.h"
+    requires objc
+}

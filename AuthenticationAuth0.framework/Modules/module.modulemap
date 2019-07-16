@@ -1,0 +1,11 @@
+framework module AuthenticationAuth0 {
+  umbrella header "AuthenticationAuth0.h"
+
+  export *
+  module * { export * }
+}
+
+module AuthenticationAuth0.Swift {
+    header "AuthenticationAuth0-Swift.h"
+    requires objc
+}

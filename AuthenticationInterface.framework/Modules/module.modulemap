@@ -1,0 +1,11 @@
+framework module AuthenticationInterface {
+  umbrella header "AuthenticationInterface.h"
+
+  export *
+  module * { export * }
+}
+
+module AuthenticationInterface.Swift {
+    header "AuthenticationInterface-Swift.h"
+    requires objc
+}

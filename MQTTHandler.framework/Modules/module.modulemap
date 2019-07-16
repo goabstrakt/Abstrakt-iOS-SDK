@@ -1,0 +1,11 @@
+framework module MQTTHandler {
+  umbrella header "MQTTHandler.h"
+
+  export *
+  module * { export * }
+}
+
+module MQTTHandler.Swift {
+    header "MQTTHandler-Swift.h"
+    requires objc
+}

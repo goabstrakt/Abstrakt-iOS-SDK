@@ -1,66 +1,49 @@
 # Abstrakt iOS SDK
 
-Abstrakt's SDK, is a plug & play blockchain interface for your iOS application. Our SDK takes the responsibility of developing, managing, and maintaining much of the essential infrastructure critical from blockchain dapp development. For a high level overview of what Vault Engine offers, checkout https://goabstrakt.com/sdk/ 
+Abstrakt's SDK, is a plug & play blockchain interface for your iOS application. Our SDK takes the responsibility of developing, managing, and maintaining much of the essential infrastructure critical for blockchain dapp development. For a high level overview of what our SDK offers, checkout https://goabstrakt.com/sdk/ 
 
 This documentation can also be viewed here: http://abstakt.docs.stoplight.io. 
 
 ## Requirements
 
-- iOS 10+
+- iOS 11+
 - Xcode 9+
 - Swift 4.x
 
 ## Setup
 
-1. Drag and drop **Abstrakt.framework** file in to your project.
-2. Embed framework in your app. You can do this by selecting your app's `*.XcodeProj` from your project navigator. Then select Target and Add framework in the Embedded Binaries Section.
-3. Create pod file and add below dependancies using [CocoaPods](https://cocoapods.org). Replace **SDKTestApp** with your app name.
+1. Create pod file and add below dependancies using [CocoaPods](https://guides.cocoapods.org/using/getting-started.html). Replace **SDKTestApp** with your app name.
    
  ```
- platform :ios, '10.0'
+ platform :ios, '11.0'
 
 target 'SDKTestApp' do
   use_frameworks!
 
-  pod 'Charts', '~> 3.1.1'
-  pod 'Floaty', '~> 4.1.0'
-  pod 'SwiftyJSON', '~> 4.1.0'
-  pod 'SideMenu', '~> 5.0.3'
-  pod 'XLActionController/Youtube', '~> 4.1.1'
-  pod 'XLActionController/Periscope', '~> 4.1.1'
-  pod 'IPImage', '~> 1.0.2'
-  pod 'SDWebImage/WebP', '~> 4.3.3'
-  pod 'DropDown', '~> 2.3.2'
-  pod 'Toaster'#,'~> 2.1.1'
-  pod 'Auth0', '~> 1.13.0'
-  pod 'JWTDecode', '~> 2.1'
-  pod 'KeychainSwift', '~> 13.0'
-  pod 'CryptoSwift', '~> 0.13.1'
-  pod 'BigInt', '~> 3.1'
-  pod 'secp256k1.swift'
-  pod 'SocketRocket'
-  pod 'HockeySDK'
-
-end
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    if ['Toaster'].include? target.name
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.0'
-      end
-    end
-    if ['Charts'].include? target.name
-      target.build_configurations.each do |config|
-        config.build_settings['SWIFT_VERSION'] = '4.0'
-      end
-    end
-  end
+  pod 'Abstrakt', :git => 'https://github.com/goabstrakt/Abstrakt-iOS-SDK.git'
 end
 ```
-4. Then run the following command:
+2. Then run the following command:
     ``` $ pod install ```
-5. When compiling the framework for the app store, you will need to run a script to sign all the code. Contact the Abstrakt team for details.
+
+3. Create a file named `Auth0.plist` on the root of your project. Add the following code in the file (replacing the `YOUR_CLIENT_ID` and `YOUR_DOMAIN` with the values provided by Abstrakt):
+```<!-- Auth0.plist -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>ClientId</key>
+        <string>YOUR_CLIENT_ID</string>
+        <key>Domain</key>
+        <string>YOUR_DOMAIN</string>
+    </dict>
+</plist>
+```
+Default Limited ClientId & URL for testing: 
+    **ClientId:** GTagntKIIbH48Oi2Cultj7243mGTwCnr
+    **Domain  :** vaultwallet.auth0.com
+
 
 **Note:** `Abstrakt.shared` is used to access the Abstrakt framework as singleton. Currently all functions need to be accessed using **'.shared'**
 
@@ -143,6 +126,19 @@ class ViewController: UIViewController {
     
 }
 ```
+
+## SDK integration guidelines and best practices
+
+- The current SDK is accessed as a singleton. All functions called through **Abstrakt.shared**.
+- The Authenicate function must be called first to connect the SDK to supported blockchains. Authenticate estabilishes a real-time connection with Abstrakt's services. For more information about our real-time MQTT connection, checkout the features section. 
+
+- The SDK provides 2 types of interfaces to access blockchain data, accounts & connections:
+    1) function calls - returns data via completion block
+    2) delegates      - returns data whenever there are any changes
+
+    - We recommend using fuction calls to **initializing** UI and 'get' specific data for one-time consumption.
+    - We recommend listening to delegates to **update** UI and/or trigger actions. Delegates push new data (transactions, account updates, etc.) to all functions calling it. 
+
 
 ## Authentication
 
@@ -252,13 +248,13 @@ Once a mnenomic is encrypted and backuped to the user's apple keychain, it can b
 #### Generate Account public/private keypair from a Mnemonic
 Create account can be called after generating or importing the mnemonic which is the master seed. If the mnemonic does not exist on device, an error will be returned. 
 ```swift
-Abstrakt.shared.createAccount(nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (Bool) -> Void)
+Abstrakt.shared.createAccount(nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (CompletionError?, Account?) -> Void)
 ```
 #### Remove Account
 Removing an account deletes the private/public key pair from the device and from the user's profile. 
 Note that deleting the last account, will delete the mnemonic that was used to generate the account as well. Hence, if the last account is deleted, all private keys and mnemonics are deleted from device. 
 ```swift
-Abstrakt.shared.removeAccount(blockchainNetwork: BlockchainNetwork, accountAddress: String)
+Abstrakt.shared.removeAccount(blockchainNetwork: BlockchainNetwork, accountAddress: String, completion: ((CompletionError?, _ accountAddress: String?) -> Void)? = nil)
 ```
 #### Get Account Balance
 This function gets the account balance of any account the logged in user has in their acccount.
@@ -269,6 +265,18 @@ Abstrakt.shared.getAccountBalance(accountAddress: String, blockchainNetwork: Blo
 Return Account Object 
 ```swift
 Abstrakt.shared.getMyAccounts(isTestnetEnabled: Bool, completion: @escaping ([Account]) -> Void)
+```
+#### Share Account
+```swift
+Abstrakt.shared.shareAccount(userId: String, blockchainNetwork: BlockchainNetwork, accountAddress: String, completion: ((CompletionError?, Account?) -> Void)? = nil)
+```
+#### Unshare Account
+```swift
+Abstrakt.shared.unshareAccount(userId: String, blockchainNetwork: BlockchainNetwork, accountAddress: String, completion: ((CompletionError?, Account?) -> Void)? = nil)
+```
+#### Get Shared Account From Other User's UserId
+```swift
+Abstrakt.shared.getSharedAccountFromUserId(userId: String, completion: @escaping ([Account]) -> Void)
 ```
 #### Get Account Keys
 Work in Progress - Will return public & private keys of specified account
@@ -282,6 +290,14 @@ Abstrakt.shared.getTransactions(blockchainNetwork: [Strings], completion: @escap
 ####  Get Transactions from a specific account
 ```swift
 Abstrakt.shared.getTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
+```
+#### Get Pending Transactions from all accounts of specified blockchain networks 
+```swift
+Abstrakt.shared.getPendingTransactions(blockchainNetworks: [BlockchainNetwork] = [], completion: @escaping ([EthereumTransaction]) -> Void)
+```
+####  Get Transactions from a specific account
+```swift
+Abstrakt.shared.getPendingTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
 ```
 #### Send Transaction
 Send transaction by specifying the from address, to address, the blockchain network, and value in ether.   
@@ -297,7 +313,7 @@ Send transaction by specifying the from address, to address, the blockchain netw
 </table>
 
 ```swift
-Abstrakt.shared.sendTransaction(blockchainNetwork: BlockchainNetwork, fromAccountAddress: String, toAccountAddress: String, amountToTransfer: String, completion: @escaping (Bool) -> Void)
+Abstrakt.shared.sendTransaction(blockchainNetwork: BlockchainNetwork, fromAccountAddress: String, toAccountAddress: String, userId: String, amountToTransfer: String, completion: @escaping (CompletionError?) -> Void)
 ```
 
 ## Market Data
@@ -306,8 +322,66 @@ Returns the USD market value of the specified blockchain network
 Abstrakt.shared.getMarketValue(by blockchainNetwork: BlockchainNetwork) -> MarketValue?
 ```
 
+## Connections 
+```swift
+Abstrakt.shared.searchContact(email: String, completion: @escaping (CompletionError?, [SearchedContact]) -> Void)
+```
+```swift
+Abstrakt.shared.getPendingConnectionRequests(completion: @escaping ([PendingConnectionRequest]) -> Void)
+```
+```swift
+Abstrakt.shared.requestConnection(userId: String, completion: ((CompletionError?, PendingConnectionRequest?) -> Void)? = nil)
+```
+```swift
+Abstrakt.shared.approveConnectionRequest(userId: String, completion: ((CompletionError?, UserConnection?) -> Void)? = nil)
+```
+```swift
+Abstrakt.shared.denyConnectionRequest(userId: String, completion: ((CompletionError?, _ userId: String?) -> Void)? = nil)
+```
+```swift
+Abstrakt.shared.removeConnection(userId: String, completion: ((CompletionError?, _ userId: String?) -> Void)? = nil)
+```
+```swift
+Abstrakt.shared.getConnections(completion: @escaping ([UserConnection]) -> Void)
+```
+
+
 ## Delegates 
-Documentation being added. 
+Delegates are triggered when there is a state change in any of the Abstrakt Objects.
+Delegates return the new data received by the logged-in user, **on all devices**. If the user is logged-in on 2 devices, delegates on both devices will be triggered!
+####  Monitor connectivity to abstrakt services 
+```swift
+didConnected()                                                          // Connected to Abstrakt's Services 
+didDisconnected()                                                       // Disconnected from Abstrakt's Services (user closed the app or no internet connectivity)
+```
+####  New Transactions and Market Data
+```swift
+newTransaction(transaction: EthereumTransaction)
+marketValueUpdated(newValue: MarketValue)
+```
+####  Accounts
+```swift
+accountNickNameChanged(account: Account) {}                             
+accountAdded(account: Account) {}
+accountRemoved(accountAddress: String) {}
+
+accountShared(account: Account) {}                   // returns an account that was shared by logged-in user or other user. 'isMyAccount' show who.
+accountUnshared(account: Account) {}                 // returns an account that was unshared by logged-in user or other user. 'isMyAccount' show who. 
+```
+
+#### Connections
+```swift
+connectionRequestSent(connectionRequest: PendingConnectionRequest) {}   // returns pending connection request initiated by other user for the logged-in user
+newConnectionRequest(connectionRequest: PendingConnectionRequest) {}    // returns pending connection request initiated by logged-in user. request could have been initiated by user on another device. 
+connectionRequestAccepted(connection: UserConnection) {}                // returns 'approved' connection for a pending connection request initiated by logged-in user
+connectionRequestAcceptedByMe(connection: UserConnection) {}            // returns 'approved' connection for a pending connection request initiated by other user. logged-in user accepted the request. 
+connectionRequestDenied(userId: String) {}                              // returns other userId of a pending connection requested that was declined/cancelled 
+connectionRemoved(userId: String) {}                                    // returns other userId of an existing connection that was removed
+```
+
+
+
+
 
 
 

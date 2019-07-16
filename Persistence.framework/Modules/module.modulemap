@@ -1,0 +1,11 @@
+framework module Persistence {
+  umbrella header "Persistence.h"
+
+  export *
+  module * { export * }
+}
+
+module Persistence.Swift {
+    header "Persistence-Swift.h"
+    requires objc
+}

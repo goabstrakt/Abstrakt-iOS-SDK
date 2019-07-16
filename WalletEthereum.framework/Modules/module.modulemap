@@ -1,0 +1,11 @@
+framework module WalletEthereum {
+  umbrella header "WalletEthereum.h"
+
+  export *
+  module * { export * }
+}
+
+module WalletEthereum.Swift {
+    header "WalletEthereum-Swift.h"
+    requires objc
+}
