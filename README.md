@@ -1,4 +1,4 @@
-# Abstrakt iOS SDK
+# Abstrakt iOS Blockchain SDK
 
 Abstrakt's SDK, is a plug & play blockchain interface for your iOS application. Our SDK takes the responsibility of developing, managing, and maintaining much of the essential infrastructure critical for blockchain dapp development. For a high level overview of what our SDK offers, checkout https://goabstrakt.com/sdk/ 
 
