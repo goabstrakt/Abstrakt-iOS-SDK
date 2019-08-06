@@ -40,9 +40,7 @@ end
     </dict>
 </plist>
 ```
-Default Limited ClientId & URL for testing: \
-    **ClientId:** GTagntKIIbH48Oi2Cultj7243mGTwCnr
-    **Domain  :** vaultwallet.auth0.com
+
 
 
 ## Abstrakt SDK Feature Overview
