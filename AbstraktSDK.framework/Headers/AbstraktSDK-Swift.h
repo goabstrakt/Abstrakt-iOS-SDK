@@ -184,6 +184,33 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # pragma pop_macro("any")
 #endif
 
+@class Account;
+@class PendingConnectionRequest;
+@class UserConnection;
+@class Transaction;
+@class MarketValue;
+
+SWIFT_PROTOCOL("_TtP11AbstraktSDK16AbstraktDelegate_")
+@protocol AbstraktDelegate
+@optional
+- (void)didConnected;
+- (void)didDisconnected;
+- (void)accountNickNameChangedWithAccount:(Account * _Nonnull)account;
+- (void)accountAddedWithAccount:(Account * _Nonnull)account;
+- (void)accountRemovedWithAccountAddress:(NSString * _Nonnull)accountAddress;
+- (void)accountsUpdated;
+- (void)connectionRequestSentWithConnectionRequest:(PendingConnectionRequest * _Nonnull)connectionRequest;
+- (void)newConnectionRequestWithConnectionRequest:(PendingConnectionRequest * _Nonnull)connectionRequest;
+- (void)connectionRequestAcceptedWithConnection:(UserConnection * _Nonnull)connection;
+- (void)connectionRequestAcceptedByMeWithConnection:(UserConnection * _Nonnull)connection;
+- (void)connectionRequestDeniedWithUserId:(NSString * _Nonnull)userId;
+- (void)connectionRemovedWithUserId:(NSString * _Nonnull)userId;
+- (void)accountSharedWithAccount:(Account * _Nonnull)account;
+- (void)accountUnsharedWithAccount:(Account * _Nonnull)account;
+- (void)newTransactionWithTransaction:(Transaction * _Nonnull)transaction;
+- (void)marketValueUpdatedWithNewValue:(MarketValue * _Nonnull)newValue;
+@end
+
 
 SWIFT_CLASS("_TtC11AbstraktSDK7Account")
 @interface Account : NSObject
@@ -192,8 +219,21 @@ SWIFT_CLASS("_TtC11AbstraktSDK7Account")
 @end
 
 
+SWIFT_CLASS("_TtC11AbstraktSDK11Transaction")
+@interface Transaction : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC11AbstraktSDK18BitcoinTransaction")
+@interface BitcoinTransaction : Transaction
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC11AbstraktSDK19EthereumTransaction")
-@interface EthereumTransaction : NSObject
+@interface EthereumTransaction : Transaction
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
@@ -218,6 +258,7 @@ SWIFT_CLASS("_TtC11AbstraktSDK15SearchedContact")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
 @end
+
 
 
 SWIFT_CLASS("_TtC11AbstraktSDK14UserConnection")

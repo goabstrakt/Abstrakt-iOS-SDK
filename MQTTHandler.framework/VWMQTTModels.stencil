@@ -18,7 +18,11 @@ public class VW{{type.name}}: NSObject, NSCoding {
     public var {{variable.name}}: [VW{{variable.typeName.array.elementTypeName}}]!
    {% endif %}
   {% else %}
+   {% if variable.typeName|contains:"Float" %}
+    public var {{variable.name}}: Double?
+   {% else %}
     public var {{variable.name}}: {{variable.unwrappedTypeName}}?
+   {% endif %}
   {% endif %}
  {% endfor %}
 
@@ -58,31 +62,31 @@ public class VW{{type.name}}: NSObject, NSCoding {
       {% endif %}
 
      {% else %}
-      {% if variable.typeName|contains:"Date" or variable.typeName|contains:"Double" %}
+      {% if variable.typeName|contains:"Date" or variable.typeName|contains:"Float" %}
       {% if variable.typeName|contains:"Date" %}
       {% if variable|annotated:"jsonKey" %}
         if let tempDate = dictionary["{{variable.annotations.jsonKey}}"] as? Int {
-            let date = Date(timeIntervalSince1970: Double(tempDate))
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
-            dateFormatter.locale = Locale(identifier: "en_US")
-            dateFormatter.dateFormat = "MM/dd/yy HH:mm"
-            let strDate = dateFormatter.string(from: date)
-            self.{{variable.name}} = dateFormatter.date(from: strDate)
+            self.{{variable.name}} = Date(timeIntervalSince1970: Double(tempDate))
+            //let dateFormatter = DateFormatter()
+            //dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+            //dateFormatter.locale = Locale(identifier: "en_US")
+            //dateFormatter.dateFormat = "MM/dd/yy HH:mm"
+            //let strDate = dateFormatter.string(from: date)
+            //self.{{variable.name}} = dateFormatter.date(from: strDate)
         }
       {% else %}
         if let tempDate = dictionary["{{variable.name}}"] as? Int {
-            let date = Date(timeIntervalSince1970: Double(tempDate))
-            let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
-            dateFormatter.locale = Locale(identifier: "en_US")
-            dateFormatter.dateFormat = "MM/dd/yy HH:mm"
-            let strDate = dateFormatter.string(from: date)
-            self.{{variable.name}} = dateFormatter.date(from: strDate)
+            self.{{variable.name}} = Date(timeIntervalSince1970: Double(tempDate))
+            //let dateFormatter = DateFormatter()
+            //dateFormatter.timeZone = TimeZone(abbreviation: "GMT") //Set timezone that you want
+            //dateFormatter.locale = Locale(identifier: "en_US")
+            //dateFormatter.dateFormat = "MM/dd/yy HH:mm"
+            //let strDate = dateFormatter.string(from: date)
+            //self.{{variable.name}} = dateFormatter.date(from: strDate)
         }
       {% endif %}
      {% endif %}
-     {% if variable.typeName|contains:"Double" %}
+     {% if variable.typeName|contains:"Float" %}
       {% if variable|annotated:"jsonKey" %}
         if let data = dictionary["{{variable.annotations.jsonKey}}"] as? String {
       {% else %}
@@ -137,10 +141,27 @@ public class VW{{type.name}}: NSObject, NSCoding {
         }
      {% endif %}
      {% else %}
-      {% if variable|annotated:"jsonKey" %}
-        dictionary["{{variable.annotations.jsonKey}}"] = {{variable.name}}
+      {% if variable.typeName|contains:"Date" or variable.typeName|contains:"Float" %}
+       {% if variable.typeName|contains:"Date" %}
+        {% if variable|annotated:"jsonKey" %}
+        dictionary["{{variable.annotations.jsonKey}}"] = ({{variable.name}} != nil) ? Int({{variable.name}}!.timeIntervalSince1970) : nil
+        {% else %}
+        dictionary["{{variable.name}}"] = ({{variable.name}} != nil) ? Int({{variable.name}}!.timeIntervalSince1970) : nil
+        {% endif %}
+       {% endif %}
+       {% if variable.typeName|contains:"Float" %}
+        {% if variable|annotated:"jsonKey" %}
+        dictionary["{{variable.annotations.jsonKey}}"] = ({{variable.name}} != nil) ? String(format:"%.0f", {{variable.name}}!) : nil
+        {% else %}
+        dictionary["{{variable.name}}"] = ({{variable.name}} != nil) ? String(format:"%.0f", {{variable.name}}!) : nil
+        {% endif %}
+       {% endif %}
       {% else %}
+       {% if variable|annotated:"jsonKey" %}
+        dictionary["{{variable.annotations.jsonKey}}"] = {{variable.name}}
+       {% else %}
         dictionary["{{variable.name}}"] = {{variable.name}}
+       {% endif %}
       {% endif %}
      {% endif %}
     {% endfor %}
@@ -179,7 +200,11 @@ public class VW{{type.name}}: NSObject, NSCoding {
         self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? [VW{{variable.typeName.array.elementTypeName}}] ?? []
        {% endif %}
       {% else %}
+       {% if variable.typeName|contains:"Float" %}
+        self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? Double
+       {% else %}
         self.{{variable.name}} = aDecoder.decodeObject(forKey: "{{variable.name}}") as? {{variable.typeName}}
+       {% endif %}
       {% endif %}
      {% endfor %}
     }

@@ -189,12 +189,41 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSEntityDescription;
 @class NSManagedObjectContext;
 
+SWIFT_CLASS_NAMED("BtcTransaction")
+@interface BtcTransaction : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+@class NSObject;
+
+@interface BtcTransaction (SWIFT_EXTENSION(Persistence))
+@property (nonatomic) int32_t blockchainId;
+@property (nonatomic, copy) NSString * _Nullable blockHash;
+@property (nonatomic) int64_t blockNumber;
+@property (nonatomic, copy) NSDate * _Nullable blockTimestamp;
+@property (nonatomic, copy) NSString * _Nullable coinBase;
+@property (nonatomic) int64_t correncyConversion;
+@property (nonatomic, copy) NSString * _Nullable from;
+@property (nonatomic, strong) NSObject * _Nullable fromAddresses;
+@property (nonatomic) int64_t gas;
+@property (nonatomic) int64_t gasPrice;
+@property (nonatomic, copy) NSString * _Nullable hashPK;
+@property (nonatomic) int64_t lockTime;
+@property (nonatomic, strong) NSObject * _Nullable scriptPubKey;
+@property (nonatomic, copy) NSString * _Nullable to;
+@property (nonatomic, strong) NSObject * _Nullable toAddresses;
+@property (nonatomic, copy) NSString * _Nullable txId;
+@property (nonatomic) int64_t value;
+@property (nonatomic) int64_t voutIndex;
+@property (nonatomic) BOOL vOutSpent;
+@end
+
+
 SWIFT_CLASS_NAMED("Connection")
 @interface Connection : NSManagedObject
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@class NSObject;
 
 @interface Connection (SWIFT_EXTENSION(Persistence))
 @property (nonatomic, strong) NSObject * _Nullable sharedAccounts;
@@ -276,6 +305,23 @@ SWIFT_CLASS_NAMED("PendingRequest")
 @end
 
 
+SWIFT_CLASS_NAMED("SmartContract")
+@interface SmartContract : NSManagedObject
+- (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+@interface SmartContract (SWIFT_EXTENSION(Persistence))
+@property (nonatomic) int32_t blockchainId;
+@property (nonatomic, copy) NSString * _Nullable contractAddress;
+@property (nonatomic) int32_t decimal;
+@property (nonatomic, copy) NSString * _Nullable icon;
+@property (nonatomic, copy) NSString * _Nullable name;
+@property (nonatomic, copy) NSString * _Nullable shortName;
+@property (nonatomic, copy) NSString * _Nullable type;
+@end
+
+
 SWIFT_CLASS_NAMED("Transaction")
 @interface Transaction : NSManagedObject
 - (nonnull instancetype)initWithEntity:(NSEntityDescription * _Nonnull)entity insertIntoManagedObjectContext:(NSManagedObjectContext * _Nullable)context OBJC_DESIGNATED_INITIALIZER;
@@ -287,13 +333,18 @@ SWIFT_CLASS_NAMED("Transaction")
 @property (nonatomic, copy) NSString * _Nullable blockHash;
 @property (nonatomic) int64_t blockNumber;
 @property (nonatomic, copy) NSDate * _Nullable blockTimestamp;
+@property (nonatomic) double cashValue;
 @property (nonatomic, copy) NSString * _Nullable from;
 @property (nonatomic) BOOL fromUser;
 @property (nonatomic) int64_t gas;
 @property (nonatomic) int64_t gasPrice;
+@property (nonatomic, copy) NSString * _Nullable gasUsed;
 @property (nonatomic, copy) NSString * _Nullable hashPK;
 @property (nonatomic, copy) NSString * _Nullable input;
+@property (nonatomic, copy) NSString * _Nullable isSmartContract;
+@property (nonatomic, copy) NSString * _Nullable smartContractAddress;
 @property (nonatomic, copy) NSString * _Nullable to;
+@property (nonatomic) int64_t tokenValue;
 @property (nonatomic) BOOL toUser;
 @property (nonatomic) double value;
 @end
@@ -338,8 +389,83 @@ SWIFT_CLASS("_TtC11Persistence9VMAccount")
 @end
 
 
+SWIFT_CLASS("_TtC11Persistence20VMBitcoinTransaction")
+@interface VMBitcoinTransaction : NSObject <NSCoding>
+/// <ul>
+///   <li>
+///     NSCoding required method.
+///   </li>
+///   <li>
+///     Encodes mode properties into the decoder
+///   </li>
+/// </ul>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+/// <ul>
+///   <li>
+///     NSCoding required initializer.
+///   </li>
+///   <li>
+///     Fills the data from the passed decoder
+///   </li>
+/// </ul>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC11Persistence20VMBitcoinTransaction")
+@interface VMBitcoinTransaction : NSObject <NSCoding>
+/// <ul>
+///   <li>
+///     NSCoding required method.
+///   </li>
+///   <li>
+///     Encodes mode properties into the decoder
+///   </li>
+/// </ul>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+/// <ul>
+///   <li>
+///     NSCoding required initializer.
+///   </li>
+///   <li>
+///     Fills the data from the passed decoder
+///   </li>
+/// </ul>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC11Persistence9VMContact")
 @interface VMContact : NSObject <NSCoding>
+/// <ul>
+///   <li>
+///     NSCoding required method.
+///   </li>
+///   <li>
+///     Encodes mode properties into the decoder
+///   </li>
+/// </ul>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+/// <ul>
+///   <li>
+///     NSCoding required initializer.
+///   </li>
+///   <li>
+///     Fills the data from the passed decoder
+///   </li>
+/// </ul>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC11Persistence12VMERC20Token")
+@interface VMERC20Token : NSObject <NSCoding>
 /// <ul>
 ///   <li>
 ///     NSCoding required method.

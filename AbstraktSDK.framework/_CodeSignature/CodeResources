@@ -6,23 +6,23 @@
 	<dict>
 		<key>Headers/AbstraktSDK-Swift.h</key>
 		<data>
-		jOmFL2lATRKz3faETPOz3dJkEYA=
+		yWR9F8MoiDOzfOh9zCF4m76vAB4=
 		</data>
 		<key>Headers/AbstraktSDK.h</key>
 		<data>
-		JiVenEbWRXwSz0wytPfKD3eIo1Q=
+		j8VyYZp8qvrwJVzTkfSgWATIEbk=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9iynTWuiI1KMpZaddquq33rZ/Yc=
+		uXo13EUeYrQicnYnue/3nVCeKAU=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		1XaGAKHCfD4gHrK2NxF4wH9qFSc=
+		9A/fjCRZ9F3GiuWU4OSmGs9JyTw=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		f2I13Ur+7R8YFEYC9fm7PLGV0CE=
+		Y22jwUuQc3Nr2tSJmP9WqDlViHA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>README.md</key>
 		<data>
-		CeDdsjCwrKKeiDdjiUvx/2u6zWg=
+		E9QNvWRLHHSlXKXKYsayETb9O7s=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -39,28 +39,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6V16JLAylIvRHmamsRR5bR+e1lxGVZxRvkcPc35CZXM=
+			BzToNRTgsOZ7sG2udnNwHt2C32mjS531RdxwBpRV50Y=
 			</data>
 		</dict>
 		<key>Headers/AbstraktSDK.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			IXo+2zoFbEPCMeV/8HkFwch7WOCM5YMSSE+El6uXOGs=
+			ZMiptUXZbDjlZXtz01O8W09w6z+JP2/9FuSOagGq2fQ=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			3fDr/go0P29UlyYfL3f4a6TzWJZYpx6TPb+12sLUOig=
+			Vs7iR6bedq+Puzb11C+n6jQTGXMoNz/zA5g+iaHCetA=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			/X8rNuiKYCUMVajujQcfODkRqQnLPt90wE/fJOC5rVc=
+			FlfCL0uNsqrH9JNczdGmSYGl8ZJMcWRsHtEAoUlr+Rg=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -74,7 +74,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			oTWOSzqhwZ2HGYfTTd3uar/Wy9B82qEC1iHyDizrnJ4=
+			BPDE9txaM2WOQS0Rezzrsig7XquWArelJX40Ld254dk=
 			</data>
 		</dict>
 	</dict>

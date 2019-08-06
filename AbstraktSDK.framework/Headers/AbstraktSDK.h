@@ -2,8 +2,8 @@
 //  AbstraktSDK.h
 //  AbstraktSDK
 //
-//  Created by macintosh on 11/06/2019.
-//  Copyright © 2019 Vault Wallet LLC. All rights reserved.
+//  Created by Dharmesh Vaghani on 22/07/19.
+//  Copyright © 2019 HTK. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>

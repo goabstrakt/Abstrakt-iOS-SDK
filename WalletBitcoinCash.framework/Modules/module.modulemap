@@ -1,0 +1,11 @@
+framework module WalletBitcoinCash {
+  umbrella header "WalletBitcoinCash.h"
+
+  export *
+  module * { export * }
+}
+
+module WalletBitcoinCash.Swift {
+    header "WalletBitcoinCash-Swift.h"
+    requires objc
+}
