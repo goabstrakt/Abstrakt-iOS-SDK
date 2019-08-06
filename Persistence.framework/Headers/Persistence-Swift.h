@@ -213,7 +213,7 @@ SWIFT_CLASS_NAMED("BtcTransaction")
 @property (nonatomic, copy) NSString * _Nullable to;
 @property (nonatomic, strong) NSObject * _Nullable toAddresses;
 @property (nonatomic, copy) NSString * _Nullable txId;
-@property (nonatomic) int64_t value;
+@property (nonatomic) double value;
 @property (nonatomic) int64_t voutIndex;
 @property (nonatomic) BOOL vOutSpent;
 @end
@@ -366,31 +366,6 @@ SWIFT_CLASS_NAMED("User")
 
 SWIFT_CLASS("_TtC11Persistence9VMAccount")
 @interface VMAccount : NSObject <NSCoding>
-/// <ul>
-///   <li>
-///     NSCoding required method.
-///   </li>
-///   <li>
-///     Encodes mode properties into the decoder
-///   </li>
-/// </ul>
-- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
-/// <ul>
-///   <li>
-///     NSCoding required initializer.
-///   </li>
-///   <li>
-///     Fills the data from the passed decoder
-///   </li>
-/// </ul>
-- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC11Persistence20VMBitcoinTransaction")
-@interface VMBitcoinTransaction : NSObject <NSCoding>
 /// <ul>
 ///   <li>
 ///     NSCoding required method.

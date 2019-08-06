@@ -40,9 +40,7 @@ end
     </dict>
 </plist>
 ```
-Default Limited ClientId & URL for testing: \
-    **ClientId:** GTagntKIIbH48Oi2Cultj7243mGTwCnr
-    **Domain  :** vaultwallet.auth0.com
+To get up an running: email hello@goabstrakt.com to get a free ClientId and Domain!
 
 
 ## Abstrakt SDK Feature Overview
@@ -158,15 +156,9 @@ Login/Create new user account by authenticating with Auth0. This function create
 Abstrakt.shared.authenticateWithEmailAndPassword(email: String, password: String, completion: @escaping (String) -> Void)
 ```
 Login/Create new user account by authenticating with Auth0 social auth. This function redirects the user to a social authentication login.
-<table>
-  <tr><th><b>Parameter</b></th><th><b>Description</b></th></tr>
-  <tr><td>audience</td><td>auth0 API url that your application will use for authentication. Don't set parameter to use default value.</td></tr>
-  <tr><th><b>Return</b></th><th><b>Description</b></th></tr>
-  <tr><td>string</td><td>returns *success* or *nil* if authentication failed</td></tr>
-</table>
 
 ```swift
-Abstrakt.shared.authenticate(audience: String, completion: @escaping (String?) -> Void)
+Abstrakt.shared.authenticate(completion: @escaping (String?) -> Void)
 ````
 
 #### Check if user is already authenticated
@@ -199,6 +191,10 @@ Check if SDK is connected to Abstrakt Services
 ```swift
 Abstrakt.shared.getConnectionStatus() -> Bool
 ```
+**For debugging and testing only:** Reset the current session and re-sync all data from Abstrakt Services 
+```swift
+Abstrakt.shared.refreshSession()
+```
 
 ## Mnemonic
 A mnemonic is a human readable list of words that generates a master seed, that in turn, generates wallet accounts for users. It is critical that a mnemonic must be backed-up by the user, as soon as it is generated. If the user's account is deleted from their device, or if the device is lost, the mnemonic is not recoverable! It is the key to accessing a user's wallet accounts. We are working on cloud-backup using the iOS/Android keystore for users with smaller account balances.
@@ -221,7 +217,6 @@ This function imports an mnemonic to the device. The user can type in their mnem
 
 <table>
   <tr><th><b>Parameter</b></th><th><b>Description</b></th></tr>
-  <tr><td>isTestnetEnabled</td><td>if enabled will generate testnet work accounts and mainnet accounts of existing accounts</td></tr>
   <tr><td>mnemonic</td><td>mnemonic string to import</td></tr>
   <tr><td>nickName</td><td>optional name of first account created using mnemonic. Both blockchainNetwork and nickName have to be specifed or either.</td></tr>
   <tr><td>blockchainNetwork</td><td>optional blockchain network of first account created.</td></tr>
@@ -230,12 +225,20 @@ This function imports an mnemonic to the device. The user can type in their mnem
 </table>
 
 ```swift
-Abstrakt.shared.importMnemonic(isTestnetEnabled: Bool = false, mnemonic: String, nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (Bool) -> Void)
+Abstrakt.shared.importMnemonic(mnemonic: String, nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (CompletionError?) -> Void)
 ```
 #### Get Mnemonic
 This function returns generated/imported menmonic encrypted on the device. It can be displayed to the user for backing up. 
 ```swift
 Abstrakt.shared.getMnemonic(completion: @escaping (String) -> Void)
+```
+#### Check if specified account has private key encrypted on device 
+```swift
+Abstrakt.shared.hasPrivateKey(accountAddress: String, blockchainNetwork: BlockchainNetwork) -> Bool
+```
+#### Check if specified account has menmonic encrypted on device 
+```swift
+Abstrakt.shared.hasMnemonic(accountAddress: String, blockchainNetwork: BlockchainNetwork) -> Bool
 ```
 #### Cloud backup (work in progress..)
 This function will enable you to encrypt the user generated mnenomnic with a password and store it to the apple keychain. 
@@ -257,12 +260,18 @@ Abstrakt.shared.removeAccount(blockchainNetwork: BlockchainNetwork, accountAddre
 #### Get Account Balance
 This function gets the account balance of any account the logged in user has in their acccount.
 ```swift
-Abstrakt.shared.getAccountBalance(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (_ accountBalance: Double, _ accountConversionBalance: Double) -> Void)
+Abstrakt.shared.getAccountBalance(accountAddress: String, blockchainNetwork: BlockchainNetwork, 
+                                  completion: @escaping (_ accountValue: Double, _ accountConvertedValue: Double) -> Void)
+```
+#### Change Account Nickname
+```swift
+Abstrakt.shared.changeAccountNickName(blockchainNetwork: BlockchainNetwork, nickName: String, accountAddress: String, 
+                                      completion: ((CompletionError?, Account?) -> Void)? = nil)
 ```
 #### Get Account Object
 Return Account Object 
 ```swift
-Abstrakt.shared.getMyAccounts(isTestnetEnabled: Bool, completion: @escaping ([Account]) -> Void)
+Abstrakt.shared.getMyAccounts(blockchainNetwork: BlockchainNetwork, completion: @escaping ([Account]) -> Void)
 ```
 #### Share Account
 ```swift
@@ -283,19 +292,23 @@ Work in Progress - Will return public & private keys of specified account
 ## Transactions 
 #### Get Transactions from all accounts of specified blockchain networks 
 ```swift
-Abstrakt.shared.getTransactions(blockchainNetwork: [Strings], completion: @escaping ([EthereumTransaction]) -> Void)
+Abstrakt.shared.getTransactions(blockchainNetworks: [BlockchainNetwork] = [], completion: @escaping ([Transaction]) -> Void)
 ```
 ####  Get Transactions from a specific account
 ```swift
-Abstrakt.shared.getTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
+Abstrakt.shared.getTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([Transaction]) -> Void)
+```
+####  Get all Transactions from specific blockchain network
+```swift
+Abstrakt.shared.getTransactionsFromBlockchainNetwork(blockchainNetwork: BlockchainNetwork, completion: @escaping ([Transaction]) -> Void)
 ```
 #### Get Pending Transactions from all accounts of specified blockchain networks 
 ```swift
-Abstrakt.shared.getPendingTransactions(blockchainNetworks: [BlockchainNetwork] = [], completion: @escaping ([EthereumTransaction]) -> Void)
+Abstrakt.shared.getPendingTransactions(blockchainNetworks: [BlockchainNetwork] = [], completion: @escaping ([Transaction]) -> Void)
 ```
 ####  Get Pending Transactions from a specific account
 ```swift
-Abstrakt.shared.getPendingTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
+Abstrakt.shared.getPendingTransactionsFromAccount(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([Transaction]) -> Void)
 ```
 #### Send Transaction
 Send transaction by specifying the from address, to address, the blockchain network, and value in ether.   
@@ -311,13 +324,33 @@ Send transaction by specifying the from address, to address, the blockchain netw
 </table>
 
 ```swift
-Abstrakt.shared.sendTransaction(blockchainNetwork: BlockchainNetwork, fromAccountAddress: String, toAccountAddress: String, userId: String, amountToTransfer: String, completion: @escaping (CompletionError?) -> Void)
+Abstrakt.shared.sendTransaction(blockchainNetwork: BlockchainNetwork, fromAccountAddress: String, toAccountAddress: String, userId: String, amountToTransfer: String, 
+                                completion: @escaping (CompletionError?) -> Void)
+```
+
+## Smart Contracts
+#### Get token transactions 
+```swift
+getTransactionsFrom(contractAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
+```
+### Get supported Smart Contracts
+```swift
+getContracts(blockchainNetwork: BlockchainNetwork) -> [Token]
+```
+### Send token transaction
+```swift
+sendTokenTransaction(contractAddress: String, blockchainNetwork: BlockchainNetwork fromAccountAddress: String, toAccountAddress: String, userId: String, 
+                     amountToTransfer: String, completion: @escaping (CompletionError?) -> Void)
 ```
 
 ## Market Data
 Returns the USD market value of the specified blockchain network
 ```swift
-Abstrakt.shared.getMarketValue(by blockchainNetwork: BlockchainNetwork) -> MarketValue?
+Abstrakt.shared.getMarketValue(blockchainNetwork: BlockchainNetwork) -> MarketValue?
+```
+Returns array of market values for all blockchain network
+```swift
+Abstrakt.shared.getMarketValue(completion: @escaping ([MarketValue]) -> Void)
 ```
 
 ## Connections 
