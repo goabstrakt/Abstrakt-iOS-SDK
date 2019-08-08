@@ -40,7 +40,6 @@ end
     </dict>
 </plist>
 ```
-To get up an running: email hello@goabstrakt.com to get a free ClientId and Domain!
 
 
 ## Abstrakt SDK Feature Overview

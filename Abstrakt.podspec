@@ -52,5 +52,5 @@ Abstrakt's SDK, is a plug & play blockchain interface for your iOS application. 
    s.dependency 'BigInt', '~> 3.1'
    s.dependency 'secp256k1.swift'
    s.dependency 'SocketRocket'
-   #   s.dependency 'HockeySDK'
+   s.dependency 'HockeySDK'
 end

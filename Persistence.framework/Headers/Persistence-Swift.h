@@ -564,6 +564,31 @@ SWIFT_CLASS("_TtC11Persistence17VMRequestUserData")
 @end
 
 
+SWIFT_CLASS("_TtC11Persistence14VMScriptPubKey")
+@interface VMScriptPubKey : NSObject <NSCoding>
+/// <ul>
+///   <li>
+///     NSCoding required method.
+///   </li>
+///   <li>
+///     Encodes mode properties into the decoder
+///   </li>
+/// </ul>
+- (void)encodeWithCoder:(NSCoder * _Nonnull)aCoder;
+/// <ul>
+///   <li>
+///     NSCoding required initializer.
+///   </li>
+///   <li>
+///     Fills the data from the passed decoder
+///   </li>
+/// </ul>
+- (nonnull instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_DEPRECATED_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC11Persistence15VMSharedAccount")
 @interface VMSharedAccount : NSObject <NSCoding>
 /// <ul>

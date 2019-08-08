@@ -14,15 +14,15 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		9iynTWuiI1KMpZaddquq33rZ/Yc=
+		fa7k9RytRXnsttTJQpo9SaXkbwQ=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		WKZw/mHt3C7MN9EBP7Mn6WqEjRc=
+		KBbBRwT0HbgX+M3kUj/ewm/21Rk=
 		</data>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		Rp2Mlrte0vs+xuQZJ4tlLDsZAFM=
+		tS8xsxRAvCof3VH8P0IMUna034A=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>README.md</key>
 		<data>
-		E9QNvWRLHHSlXKXKYsayETb9O7s=
+		o0s7BPdUYAA3VSUol2ABQ+PU3VE=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -53,14 +53,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			VMCa06bwVE768FkY0OysewDA9a2VIJWloFNq71he1Yg=
+			vKEbowtHxBy/5y/K/Fmn3ldDGo/JMWJpKHXa3zagKB0=
 			</data>
 		</dict>
 		<key>Modules/AbstraktSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+/pJmmxDlVWHjT3jA1U3swp8e0til3he6euvMtWnjnY=
+			CAmlIUaZeeN9fy+E7fAdRNz6TrEPth3s0ZnwlgNcXeQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -74,7 +74,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			BPDE9txaM2WOQS0Rezzrsig7XquWArelJX40Ld254dk=
+			Ig/AXef1VNw9S4fBoAiK1EBcaaqY6EaTArXO5Gb830c=
 			</data>
 		</dict>
 	</dict>
