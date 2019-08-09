@@ -48,9 +48,26 @@ public class Log: NSObject, BITHockeyManagerDelegate {
     override init() {
         super.init()
         
-        BITHockeyManager.shared().configure(withIdentifier: "46030c529fc1476089e6dddb735d3d2f", delegate: self)
+        //HockeyApp: - Initialization START
+        guard
+            let path = Bundle.main.path(forResource: "Abstrakt", ofType: "plist"),
+            let values = NSDictionary(contentsOfFile: path) as? [String: Any]
+            else {
+                print("Missing Abstrakt.plist file with 'HockeyAppID' entry in main bundle!")
+                return
+        }
+        guard
+            let hockeyAppID = values["HockeyAppID"] as? String
+            else {
+                print("Abstrakt.plist file at \(path) is missing 'HockeyAppID' entry!")
+                print("File currently has the following entries: \(values)")
+                return
+        }
+        
+        BITHockeyManager.shared().configure(withIdentifier: hockeyAppID, delegate: self)
         BITHockeyManager.shared().start()
         BITHockeyManager.shared().authenticator.authenticateInstallation()
+        //HockeyApp: - Initialization END
     }
     
     static var dateFormat = "yyyy-MM-dd hh:mm:ssSSS"

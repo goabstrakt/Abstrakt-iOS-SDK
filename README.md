@@ -190,9 +190,14 @@ Check if SDK is connected to Abstrakt Services
 ```swift
 Abstrakt.shared.getConnectionStatus() -> Bool
 ```
-**For debugging and testing only:** Reset the current session and re-sync all data from Abstrakt Services 
+**For debugging and testing only:** 
+Reset the current session and re-sync all data from Abstrakt Services 
 ```swift
 Abstrakt.shared.refreshSession()
+```
+Connect to Abstrakt Services. Should happen automatically during authentication 
+```swift
+Abstrakt.shared.connectToMQTT() -> Bool
 ```
 
 ## Mnemonic
@@ -212,8 +217,10 @@ This function imports an mnemonic to the device. The user can type in their mnem
 2. The user does not have existing accounts generated earlier. 
     * In this case, *nickName* and *blockchainNetwork* can be set to create first account. If unset, defaults will be used to create first account. 
 
-*Note: only one mnemonic is support at this time. multi-mnemonic support will be added soon.*
+*Note: multiple mnemonics supported.*
+```swift
 
+```
 <table>
   <tr><th><b>Parameter</b></th><th><b>Description</b></th></tr>
   <tr><td>mnemonic</td><td>mnemonic string to import</td></tr>
@@ -224,8 +231,12 @@ This function imports an mnemonic to the device. The user can type in their mnem
 </table>
 
 ```swift
+// Case 1.  Try importing before asking for user input for nickName and blockchainNetwork
+Abstrakt.shared.importMnemonic(mnemonic: String) -> Int
+// Case 2.  Import mnemonic and create account
 Abstrakt.shared.importMnemonic(mnemonic: String, nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (CompletionError?) -> Void)
 ```
+
 #### Get Mnemonic
 This function returns generated/imported menmonic encrypted on the device. It can be displayed to the user for backing up. 
 ```swift
@@ -317,7 +328,7 @@ Send transaction by specifying the from address, to address, the blockchain netw
   <tr><td>blockchainNetwork</td><td>if enabled will generate testnet work accounts and mainnet accounts of existing accounts</td></tr>
   <tr><td>fromAccountAddress</td><td>public address of account to transfer from</td></tr>
   <tr><td>toAccountAddress</td><td>public address of account to transfer to</td></tr>
-  <tr><td>amountToTransfer</td><td>amount in ether to transfer</td></tr>
+  <tr><td>amountToTransfer</td><td>amount in units ether or btc to transfer</td></tr>
   <tr><th><b>Return</b></th><th><b>Description</b></th></tr>
   <tr><td>boolean</td><td>returns true = success or false = failed</td></tr>
 </table>
@@ -423,6 +434,7 @@ didDisconnected()                                                       // Disco
 ####  New Transactions and Market Data
 ```swift
 newTransaction(transaction: EthereumTransaction)
+newBtcTransaction(transaction: BitcoinTransaction)
 marketValueUpdated(newValue: MarketValue)
 ```
 ####  Accounts
