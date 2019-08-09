@@ -218,9 +218,7 @@ This function imports an mnemonic to the device. The user can type in their mnem
     * In this case, *nickName* and *blockchainNetwork* can be set to create first account. If unset, defaults will be used to create first account. 
 
 *Note: multiple mnemonics supported.*
-```swift
 
-```
 <table>
   <tr><th><b>Parameter</b></th><th><b>Description</b></th></tr>
   <tr><td>mnemonic</td><td>mnemonic string to import</td></tr>
@@ -236,7 +234,10 @@ Abstrakt.shared.importMnemonic(mnemonic: String) -> Int
 // Case 2.  Import mnemonic and create account
 Abstrakt.shared.importMnemonic(mnemonic: String, nickName: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (CompletionError?) -> Void)
 ```
-
+#### Check if Mnemonic is valid
+```swift
+Abstrakt.shared.isValidMnemonic(mnemonic: String) -> Bool
+```
 #### Get Mnemonic
 This function returns generated/imported menmonic encrypted on the device. It can be displayed to the user for backing up. 
 ```swift
@@ -244,11 +245,11 @@ Abstrakt.shared.getMnemonic(completion: @escaping (String) -> Void)
 ```
 #### Check if specified account has private key encrypted on device 
 ```swift
-Abstrakt.shared.hasPrivateKey(accountAddress: String, blockchainNetwork: BlockchainNetwork) -> Bool
+Abstrakt.shared.hasPrivateKey(blockchainNetwork: BlockchainNetwork, accountAddress: String) -> Bool
 ```
 #### Check if specified account has menmonic encrypted on device 
 ```swift
-Abstrakt.shared.hasMnemonic(accountAddress: String, blockchainNetwork: BlockchainNetwork) -> Bool
+Abstrakt.shared.hasMnemonic(blockchainNetwork: BlockchainNetwork, accountAddress: String) -> Bool
 ```
 #### Cloud backup (work in progress..)
 This function will enable you to encrypt the user generated mnenomnic with a password and store it to the apple keychain. 
@@ -270,18 +271,16 @@ Abstrakt.shared.removeAccount(blockchainNetwork: BlockchainNetwork, accountAddre
 #### Get Account Balance
 This function gets the account balance of any account the logged in user has in their acccount.
 ```swift
-Abstrakt.shared.getAccountBalance(accountAddress: String, blockchainNetwork: BlockchainNetwork, 
-                                  completion: @escaping (_ accountValue: Double, _ accountConvertedValue: Double) -> Void)
+Abstrakt.shared.getAccountBalance(accountAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping (_ accountValue: Double, _ accountConvertedValue: Double) -> Void)
 ```
 #### Change Account Nickname
 ```swift
-Abstrakt.shared.changeAccountNickName(blockchainNetwork: BlockchainNetwork, nickName: String, accountAddress: String, 
-                                      completion: ((CompletionError?, Account?) -> Void)? = nil)
+Abstrakt.shared.cchangeAccountNickName(blockchainNetwork: BlockchainNetwork, nickName: String, accountAddress: String, completion: ((CompletionError?, Account?) -> Void)
 ```
 #### Get Account Object
 Return Account Object 
 ```swift
-Abstrakt.shared.getMyAccounts(blockchainNetwork: BlockchainNetwork, completion: @escaping ([Account]) -> Void)
+Abstrakt.shared.getMyAccounts(blockchainNetworks: [BlockchainNetwork], completion: @escaping ([Account]) -> Void)
 ```
 #### Share Account
 ```swift
@@ -328,7 +327,7 @@ Send transaction by specifying the from address, to address, the blockchain netw
   <tr><td>blockchainNetwork</td><td>if enabled will generate testnet work accounts and mainnet accounts of existing accounts</td></tr>
   <tr><td>fromAccountAddress</td><td>public address of account to transfer from</td></tr>
   <tr><td>toAccountAddress</td><td>public address of account to transfer to</td></tr>
-  <tr><td>amountToTransfer</td><td>amount in units ether or btc to transfer</td></tr>
+  <tr><td>amountToTransfer</td><td>amount in units eth or btc to transfer</td></tr>
   <tr><th><b>Return</b></th><th><b>Description</b></th></tr>
   <tr><td>boolean</td><td>returns true = success or false = failed</td></tr>
 </table>
@@ -338,7 +337,7 @@ Abstrakt.shared.sendTransaction(blockchainNetwork: BlockchainNetwork, fromAccoun
                                 completion: @escaping (CompletionError?) -> Void)
 ```
 
-## Smart Contracts
+## Smart Contracts  (WIP)
 #### Get token transactions 
 ```swift
 getTransactionsFrom(contractAddress: String, blockchainNetwork: BlockchainNetwork, completion: @escaping ([EthereumTransaction]) -> Void)
