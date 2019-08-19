@@ -341,8 +341,9 @@ SWIFT_CLASS_NAMED("Transaction")
 @property (nonatomic, copy) NSString * _Nullable gasUsed;
 @property (nonatomic, copy) NSString * _Nullable hashPK;
 @property (nonatomic, copy) NSString * _Nullable input;
-@property (nonatomic, copy) NSString * _Nullable isSmartContract;
+@property (nonatomic) int32_t logIndex;
 @property (nonatomic, copy) NSString * _Nullable smartContractAddress;
+@property (nonatomic, copy) NSString * _Nullable smartContractType;
 @property (nonatomic, copy) NSString * _Nullable to;
 @property (nonatomic) int64_t tokenValue;
 @property (nonatomic) BOOL toUser;
